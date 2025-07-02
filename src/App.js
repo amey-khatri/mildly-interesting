@@ -2,22 +2,6 @@ import { useEffect, useState } from "react";
 import supabase from "./supabase";
 import "./style.css";
 
-function Counter() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <div>
-      <span style={{ fontSize: "40px" }}>{count}</span>
-      <button
-        className="btn btn-large"
-        onClick={() => setCount((count) => count + 1)}
-      >
-        +1
-      </button>
-    </div>
-  );
-}
-
 function App() {
   const [showForm, setShowForm] = useState(false);
   const [facts, setFacts] = useState([]);
@@ -271,7 +255,12 @@ function Fact({ fact, setFacts }) {
       <p>
         {isDisputed ? <span className="disputed">[DISPUTED ❌]</span> : null}
         {fact.text}
-        <a className="source" href={fact.source} target="_blank">
+        <a
+          className="source"
+          href={fact.source}
+          target="_blank"
+          rel="noreferrer"
+        >
           (Source)
         </a>
       </p>
